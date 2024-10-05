@@ -22,7 +22,6 @@ public class UsuarioController {
 	
 	@Autowired
 	private UsuarioService usuarioService;
-	private Long id;
 	
 	@GetMapping
 	public List<UsuarioDTO> listarTodos() {
@@ -42,7 +41,6 @@ public class UsuarioController {
 	//http://endereco/usuario/3
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> excluir(@PathVariable("id") Long id) {
-		this.id = id;
 		usuarioService.excluir(id);
 		return ResponseEntity.ok().build();
 	}
